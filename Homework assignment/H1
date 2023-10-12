@@ -1,1 +1,29 @@
+ 
+public class VolumeSunEarth {
+ 
+    public static void main(String[] args) {
+         double diameterSun = 865000;
+	        double diameterEarth = 7600; 
+	        double radiusSun = 0;
+	        double radiusEarth = 0; 
+	        double volumeSun = 0; 
+	        double volumeEarth = 0;
+	        double volumeRatio = 0;
+	        radiusSun = (int) Math.round (diameterSun/2);
+	        radiusEarth =  (int) Math.round (diameterEarth/2);
+	        
+	        
+	            
+	         /* Volume of Sphere = 4/3 X PI X Radius X Radius X Radius */
+	        volumeSun = (4.0 / 3) * Math.PI * radiusSun * radiusSun * radiusSun;
+	        volumeEarth = (4.0 / 3) * Math.PI * radiusEarth * radiusEarth * radiusEarth;
+	        volumeRatio = (int) Math.round  (volumeSun /volumeEarth);
+	        
+	        System.out.format("The volume of the Earth is: %.3f cubic miles ,", volumeEarth);
+	        System.out.format("The volume of the Sun is: %.3f cubic miles ,", volumeSun);
+	        System.out.format("The ratio of the volume of the Sun to the volume of the Earth is: %.1f .", volumeRatio);
 
+
+
+    }
+}
