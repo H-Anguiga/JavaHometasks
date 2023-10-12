@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Prm {
+	
+	
+	public static void main (String[] args){
+		
+		int number,i,SRoot,f=0;
+		
+		try(Scanner input=new Scanner(System.in)){
+			do {
+				System.out.print("Enter a positif number (other than 1) to find wheather this number is prime number or not: ");
+				number=input.nextInt();	
+			
+			}while (number<=1);
+			
+		
+			SRoot=(int)(Math.sqrt(number));}
+		OuterLoop:for( i=SRoot;i<number;i++)
+		{
+			if((number%i)==0)
+			{
+				f=1;
+				continue OuterLoop;
+			}
+		}
+		if(f!=1 || (number==2 || number==3)  )
+		{
+			System.out.println(+number+" is prime number");
+		}
+		else
+		{
+			System.out.println(+number+" is not prime number");
+		}	
+		 
+				
+		
+		}
+
+}
