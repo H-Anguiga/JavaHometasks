@@ -40,7 +40,7 @@ public class ArrayCar {
         }  
         
         System.out.println(" -------------------------------------- ");
-        System.out.println("list of cars of a given year of manufacture: ");
+        System.out.println("list of cars of a given year of manufacture, the price of which is higher than the specified one: ");
         for(int i=0; i<1; i++) {
         	cars[0] .printDetails3();
         	cars[4] .printDetails3();
