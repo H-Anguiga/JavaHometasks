@@ -1,41 +1,103 @@
-import java.util.Scanner;
+ 
 
-public class Prm {
-	
-	
-	public static void main (String[] args){
-		
-		int number,i,SRoot,f=0;
-		
-		try(Scanner input=new Scanner(System.in)){
-			do {
-				System.out.print("Enter a positif number (other than 1) to find wheather this number is prime number or not: ");
-				number=input.nextInt();	
-			
-			}while (number<=1);
-			
-		
-			SRoot=(int)(Math.sqrt(number));}
-		OuterLoop:for( i=SRoot;i<number;i++)
-		{
-			if((number%i)==0)
-			{
-				f=1;
-				continue OuterLoop;
-			}
-		}
-		if(f!=1 || (number==2 || number==3)  )
-		{
-			System.out.println(+number+" is prime number");
-		}
-		else
-		{
-			System.out.println(+number+" is not prime number");
-		}	
-		 
-				
-		
-		}
-
+public class ArrayCar {
+    public static void main(String[] args) {
+        
+    	
+    	Car cars[] = {
+                new Car(1,"Toyota","Hilux", 2015, "Black", 20300,25000, 5555),
+                new Car(2,"Toyota","Hilux", 2021, "silver", 14600,14000, 36472),
+                new Car(3,"Toyota","corolla", 2000, "Black", 20300,5000,34529),
+                new Car(4,"Mercedes","Class G", 2012, "white", 24700,15000, 34563),
+                new Car(5,"Mercedes","Benz SL", 2015, "Blue", 40490,50000, 66743),
+                new Car(6,"BMW","X5", 2020, "Brown", 20300,20000, 23245),
+                new Car(7,"BMW","Z4", 2013, "grey", 50200,35633, 35663),
+                new Car(8,"VW","Passat", 2018, "Brown", 20300,19324, 98675),
+                new Car(9,"VW","Golf", 2015, "Black", 20300,36543, 45376),
+                new Car(10,"Bugatti","Chiron", 2017, "Black", 2450300,1754363, 89065),
+                
+                 
+        };
+    	System.out.println(" cars information:id, Make, Model, Year of manufacture, Color, Old Price, Newp Price, Registration number. "); 
+        for(Car car: cars)
+        { car.printDetails();
+               }
+        System.out.println(" -------------------------------------- ");
+        System.out.println("list of cars of a given brand ");
+        for(int i=0; i<1; i++) {
+        	 
+        	cars[3] .printDetails1();
+        	cars[4] .printDetails1();
+        	 
+        }
+        
+        System.out.println(" -------------------------------------- ");
+        System.out.println("list of cars of a given model that have been in use for more than 10 years: ");
+        for(int i=0; i<1; i++) {
+        	cars[2] .printDetails2();
+        	cars[3] .printDetails2();
+        	cars[6] .printDetails2();
+        }  
+        
+        System.out.println(" -------------------------------------- ");
+        System.out.println("list of cars of a given year of manufacture: ");
+        for(int i=0; i<1; i++) {
+        	cars[0] .printDetails3();
+        	cars[4] .printDetails3();
+        	cars[8] .printDetails3();
+        } 
+        
+        
+    }
 }
+ 
+class Car {
+    
+	public String  make, model,color;
+    public int id, yearOfManufacture,price,registrationNumber, miles;
+	public int oldPrice;
+	public int newPrice;
+    
+     
+    public Car(int id,String make,String model, int yearOfManufacture, String color,int oldPrice, int newPrice,int registrationNumber ) {
+    	this.id= id;
+    	this.make = make;
+        this.model = model;
+        this.yearOfManufacture= yearOfManufacture;
+        this.color=color;
+        this.oldPrice = oldPrice;
+        this.newPrice =newPrice;
+        this.registrationNumber=registrationNumber;
+        
+    }
+    
+     
+     
+    public void printDetails() {
+        System.out.println(id+" - "+make+ " - "+model+" - "+yearOfManufacture+" - "+color+" - €"+oldPrice +" - €"+newPrice+" - "+registrationNumber);       
+         
+              
+    }
+    
+    
+    public void printDetails1() {
+               
+    	System.out.println(id+": "+make+" " +model);              
+    }
+    
+    public void printDetails2() {
+    	
 
+        System.out.println(id+": "+make+" " +model+" "+yearOfManufacture+" "+color);              
+    }
+    
+    
+    public void printDetails3() {
+        
+    	System.out.println(id+": "+make+" " +model+" "+yearOfManufacture+" "+color+" €"+oldPrice+" €"+newPrice);              
+    }
+    
+
+    
+    
+}
