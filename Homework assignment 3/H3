@@ -1,1 +1,147 @@
+package AH;
 
+import java.util.ArrayList;
+import java.util.List;
+
+class Engine {
+    private String type;
+
+    public Engine(String type) {
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
+}
+
+class CombustionEngine extends Engine {
+    public CombustionEngine() {
+        super("Combustion Engine");
+    }
+}
+
+class ElectricEngine extends Engine {
+    public ElectricEngine() {
+        super("Electric Engine");
+    }
+}
+
+class HybridEngine extends Engine {
+    public HybridEngine() {
+        super("Hybrid Engine");
+    }
+}
+
+class Manufacture {
+    private String name;
+    private String model;
+    private String size;
+
+    public Manufacture(String name, String model, String size) {
+        this.name = name;
+        this.model = model;
+        this.size = size;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getModel() {
+        return model;
+    }
+    
+    public String getSize() {
+        return size;
+    }
+}
+
+abstract class Vehicle {
+    private Manufacture manufacture;
+    private Engine engine;
+
+    public Vehicle(Manufacture manufacture, Engine engine) {
+        this.manufacture = manufacture;
+        this.engine = engine;
+    }
+
+    public Manufacture getManufacture() {
+        return manufacture;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public abstract void ShowCharacteristics();
+}
+
+class ICEV extends Vehicle {
+    public ICEV(Manufacture manufacture, CombustionEngine engine) {
+        super(manufacture, engine);
+    }
+
+    @Override
+    public void ShowCharacteristics() {
+        System.out.println("ICEV Vehicle Type Example:");
+        System.out.println("Manufacture: " + getManufacture().getName());
+        System.out.println("Model: " + getManufacture().getModel());
+        System.out.println("Size: " + getManufacture().getSize());
+        System.out.println("Engine Type: " + getEngine().getType());
+    }
+}
+
+class BEV extends Vehicle {
+    public BEV(Manufacture manufacture, ElectricEngine engine) {
+        super(manufacture, engine);
+    }
+
+    @Override
+    public void ShowCharacteristics() {
+        System.out.println("BEV Vehicle Type Example:");
+        System.out.println("Manufacture: " + getManufacture().getName());
+        System.out.println("Model: " + getManufacture().getModel());
+        System.out.println("Size: " + getManufacture().getSize());
+        System.out.println("Engine Type: " + getEngine().getType());
+    }
+}
+
+class HybridV extends Vehicle {
+    public HybridV(Manufacture manufacture, HybridEngine engine) {
+        super(manufacture, engine);
+    }
+
+    @Override
+    public void ShowCharacteristics() {
+        System.out.println("HybridV Vehicle Type Example:");
+        System.out.println("Manufacture: " + getManufacture().getName());
+        System.out.println("Model: " + getManufacture().getModel());
+        System.out.println("Size: " + getManufacture().getSize());
+        System.out.println("Engine Type: " + getEngine().getType());
+    }
+}
+
+public class EngineType {
+    public static void main(String[] args) {
+        
+    	CombustionEngine icev = new CombustionEngine();
+        ElectricEngine bev = new ElectricEngine();
+        HybridEngine hybrid = new HybridEngine();
+    	    	
+    	Manufacture make1 = new Manufacture("Jeep", "Grand Cherokee", "Mid-size crossover SUV");
+        Manufacture make2 = new Manufacture("VW", "ID.4","Compact crossover SUV" );
+        Manufacture make3 = new Manufacture("Toyota", "Yaris 1.5","supermini");
+        
+        List<Vehicle> carType = new ArrayList<>();
+        carType.add(new ICEV(make1, icev));
+        carType.add(new BEV(make2, bev));
+        carType.add(new HybridV(make3, hybrid));
+
+        for (Vehicle vehicle : carType) {
+            vehicle.ShowCharacteristics();
+            System.out.println();
+            System.out.println("..............................");
+        }
+    }
+}
